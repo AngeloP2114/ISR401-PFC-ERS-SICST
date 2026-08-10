@@ -1,0 +1,1072 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[12pt]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{newtxtext,newtxmath}
+\else
+  \usepackage{fontspec}
+  \IfFontExistsTF{Times New Roman}{\setmainfont{Times New Roman}}{\setmainfont{Tinos}}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage{xcolor}
+
+\usepackage[a4paper,top=2.54cm,bottom=2.54cm,left=2.54cm,right=2.54cm]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+\usepackage{ragged2e}
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{pdflscape}
+\setlength{\parindent}{1.27cm}
+\setlength{\parskip}{0pt}
+\setlist[itemize]{leftmargin=1.2cm,itemsep=2pt,topsep=2pt}
+\setlist[enumerate]{leftmargin=1.2cm,itemsep=2pt,topsep=2pt}
+\captionsetup{font=small,labelfont=bf,justification=centering}
+\titleformat{\section}{\normalfont\bfseries\fontsize{14}{16}\selectfont\color{black}}{}{0pt}{}
+\titleformat{\subsection}{\normalfont\bfseries\fontsize{12}{14}\selectfont\color{black}}{}{0pt}{}
+\titleformat{\subsubsection}{\normalfont\bfseries\fontsize{12}{14}\selectfont\color{black}}{}{0pt}{}
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+\titlespacing*{\subsection}{0pt}{10pt}{4pt}
+\titlespacing*{\subsubsection}{0pt}{8pt}{4pt}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyfoot[C]{PE4 - SICST | Página \thepage}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\arraystretch}{1.12}
+
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\AtBeginEnvironment{longtable}{\small}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\ifLuaTeX
+  \usepackage{luacolor}
+  \usepackage[soul]{lua-ul}
+\else
+  \usepackage{soul}
+\fi
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  colorlinks=true,
+  linkcolor=black,
+  urlcolor=black,
+  citecolor=black,
+  pdfcreator={XeLaTeX via pandoc}}
+
+\author{}
+\date{}
+
+\widowpenalty=10000
+\clubpenalty=10000
+\begin{document}
+\justifying
+\begin{titlepage}
+\centering
+\thispagestyle{empty}
+\vspace*{0.5cm}
+
+\textbf{UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO}
+
+\textbf{FACULTAD DE CIENCIAS DE LA COMPUTACIÓN}
+
+\textbf{CARRERA DE SOFTWARE (REDISEÑO)}
+
+\textbf{PRÁCTICA EXPERIMENTAL UNIDAD IV}
+
+\textbf{Validación, Gestión de Requisitos y Herramientas CASE}
+
+\emph{Inspección Fagan · Change Control Board · Trazabilidad CASE · Línea base con Git}
+
+\textbf{Sistema Inteligente de Control y Seguimiento de Terapia Física (SICST)}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Asignatura}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Ingeniería de Requerimientos {[}20303{]}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Nivel / paralelo} & 4.º nivel -- Paralelo B \\
+\textbf{Periodo académico} & 2026--2027 PPA \\
+\textbf{ERS inspeccionado} & 2A-Final-v2 \\
+\textbf{Versión posterior a Fagan} & 2A-Fagan-v3 \\
+\textbf{Versión posterior al CCB} & 2A-CCB-v4 \\
+\textbf{Fecha de la práctica} & 09/08/2026 \\
+\textbf{Docente responsable} & Ing. Gleiston Cicerón Guerrero Ulloa, PhD \\
+\end{longtable}
+
+\textbf{Integrantes}
+
+Zambrano Moya Angelo Paul -- Moderador + Lector Fagan; Presidente + Analista CCB
+
+Naranjo Flores Anderson Jeampiere -- Inspector 1; Representante del cliente CCB
+
+Morán Pilaguano Frixon Fernando -- Inspector 2; Desarrollador CCB
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Repositorio público PE4: }\url{https://github.com/AngeloP2114/ISR401-PFC-ERS-SICST}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+\end{titlepage}
+\clearpage
+\section{\texorpdfstring{Índice general}{Índice general}}\label{uxedndice-general}
+\noindent\textbf{1. Carátula}\par
+
+\hyperref[resumen-y-objetivos]{{2. Resumen y objetivos}}
+
+\hyperref[fundamento-teuxf3rico]{{3. Fundamento teórico}}
+
+\hyperref[inspecciuxf3n-fagan]{{4. Inspección Fagan}}
+
+\hyperref[correcciones-aplicadas]{{5. Correcciones aplicadas}}
+
+\hyperref[gestiuxf3n-del-cambio-y-ccb]{{6. Gestión del cambio y CCB}}
+
+\hyperref[trazabilidad-en-herramienta-case]{{7. Trazabilidad en herramienta CASE}}
+
+\hyperref[luxednea-base-con-git]{{8. Línea base con Git}}
+
+\hyperref[comparativa-de-herramientas-case]{{9. Comparativa de herramientas CASE}}
+
+\hyperref[ir-tradicional-frente-a-ir-uxe1gil]{{10. IR tradicional frente a IR ágil}}
+
+\hyperref[conclusiones-cruxedticas]{{11. Conclusiones críticas}}
+
+\hyperref[distribuciuxf3n-del-trabajo]{{12. Distribución del trabajo}}
+
+\hyperref[referencias]{{13. Referencias}}
+
+\hyperref[anexos-af]{{14. Anexos A--F}}
+
+\section{\texorpdfstring{2. Resumen y objetivos}{2. Resumen y objetivos}}\label{resumen-y-objetivos}
+
+\subsection{\texorpdfstring{2.1 Resumen}{2.1 Resumen}}\label{resumen}
+
+La práctica experimental aplicó validación formal, gestión del cambio y trazabilidad al ERS/SRS real del Sistema Inteligente de Control y Seguimiento de Terapia Física (SICST). Se inspeccionó la versión 2A-Final-v2 mediante Fagan, con Anderson como Inspector 1, Frixon como Inspector 2 y Angelo como Moderador + Lector. Se consolidaron 16 defectos (12 Mayores y 4 Menores), con densidad de 0,89 defectos por página, y posteriormente se corrigieron los 16 hallazgos para obtener 2A-Fagan-v3. El CCB evaluó tres RFC de naturaleza distinta: dos fueron aprobadas y una aprobada con condiciones, dando origen a 2A-CCB-v4. En Jira se configuraron 4 Epics, 15 Stories, 10 Sub-tasks, campos MoSCoW y Fuente del requisito, matriz de 15 filas y exportación CSV de 32 actividades. Finalmente, se compararon cuatro herramientas CASE y se contrastó IR tradicional frente a IR ágil. El repositorio GitHub de la PE4 se incorpora en la carátula; la evidencia final de commits y tag debe verificarse antes de la entrega.
+
+\subsection{\texorpdfstring{2.2 Objetivo general}{2.2 Objetivo general}}\label{objetivo-general}
+
+Aplicar técnicas formales de validación, gestión del cambio, trazabilidad y control de configuración al ERS/SRS del SICST, con el fin de identificar defectos, analizar su impacto, mantener versiones coherentes y preparar una línea base verificable del documento de requisitos.
+
+\subsection{\texorpdfstring{2.3 Objetivos específicos}{2.3 Objetivos específicos}}\label{objetivos-especuxedficos}
+
+\begin{itemize}
+\item Ejecutar una inspección formal tipo Fagan sobre el ERS/SRS del SICST con roles diferenciados, listas de verificación y registro consolidado de defectos.
+\item Calcular e interpretar métricas de densidad, tipo, severidad, detección por inspector y esfuerzo total.
+\item Corregir los defectos detectados y documentar el cambio antes/después sobre los requisitos afectados.
+\item Gestionar tres solicitudes formales de cambio mediante RFC y CCB con análisis de impacto, decisión, responsables y versión resultante.
+\item Construir trazabilidad bidireccional en Jira mediante jerarquía, campos personalizados, matriz, enlaces y exportación CSV.
+\item Establecer la línea base 2A-CCB-v4 mediante Git, con commits auténticos, tag anotado y CHANGELOG verificables.
+\item Comparar herramientas CASE y analizar la conveniencia de combinar IR documental con prácticas ágiles en el SICST.
+\end{itemize}
+
+\section{\texorpdfstring{3. Fundamento teórico}{3. Fundamento teórico}}\label{fundamento-teuxf3rico}
+
+\subsection{\texorpdfstring{3.1 Marco normativo}{3.1 Marco normativo}}\label{marco-normativo}
+
+ISO/IEC/IEEE 29148:2018 establece procesos y prácticas de ingeniería de requisitos y proporciona un marco para definir, analizar, verificar y validar la información de requisitos {[}1{]}. Para esta práctica, su utilidad principal es orientar la revisión de propiedades de calidad del ERS y comprobar que los requisitos sean adecuados, verificables y trazables. Los cambios posteriores se ubican dentro de los procesos de ciclo de vida y control de configuración descritos en ISO/IEC/IEEE 15288:2023 e ISO/IEC/IEEE 12207:2017 {[}2{]}, {[}3{]}.
+
+Los requisitos no funcionales se relacionan con el modelo de calidad ISO/IEC 25010:2023, que permite vincular características como eficiencia de desempeño, compatibilidad, interacción, fiabilidad, seguridad y mantenibilidad con criterios medibles {[}4{]}. SWEBOK v4.0 ubica la ingeniería de requisitos como un área que comprende obtención, análisis, especificación, validación y gestión {[}5{]}. Pohl destaca la importancia de mantener relaciones explícitas entre fuentes, requisitos, dependencias y artefactos derivados {[}6{]}. Para la gestión del cambio, el CCB se alinea con el principio de control integrado de cambios del PMBOK, donde las solicitudes deben analizarse, decidirse y reflejarse sobre la configuración aprobada {[}7{]}.
+
+\subsection{\texorpdfstring{3.2 Validación de requisitos}{3.2 Validación de requisitos}}\label{validaciuxf3n-de-requisitos}
+
+La verificación comprueba si un artefacto cumple las reglas y criterios con los que fue construido, mientras que la validación determina si los requisitos representan las necesidades reales de los stakeholders y el propósito del sistema {[}1{]}, {[}6{]}. Por ello, un requisito puede estar bien formado sintácticamente y aun así no satisfacer una necesidad, o puede expresar una necesidad válida de forma ambigua, incompleta o no verificable.
+
+Entre las técnicas de validación se encuentran revisiones, walkthroughs, prototipado, listas de verificación, análisis por perspectivas e inspecciones formales {[}5{]}, {[}8{]}. El método de Fagan separa la detección de defectos de la corrección y asigna responsabilidades explícitas a Moderador, Lector e Inspectores {[}9{]}. En PE4 se revisaron seis propiedades: ambigüedad, completitud, consistencia, verificabilidad, trazabilidad y factibilidad. Las métricas de densidad, distribución por tipo y severidad, detección por inspector y esfuerzo convierten la inspección en evidencia cuantitativa que debe interpretarse, no solo calcularse {[}5{]}, {[}9{]}.
+
+\subsubsection{\texorpdfstring{3.2.1 Ejemplo aplicado al SICST}{3.2.1 Ejemplo aplicado al SICST}}\label{ejemplo-aplicado-al-sicst}
+
+Un ejemplo real se observó en RF-19 y RF-18. RF-19 estaba priorizado como Must y declaraba dependencia de RF-18, clasificado como Should. Esta combinación permitía postergar una capacidad que el propio requisito obligatorio necesitaba, generando una inconsistencia de prioridad y dependencia. La corrección elevó RF-18 a Must para recuperar coherencia interna.
+
+\subsection{\texorpdfstring{3.3 Gestión de requisitos}{3.3 Gestión de requisitos}}\label{gestiuxf3n-de-requisitos}
+
+Una línea base es una versión identificada y controlada del ERS que sirve como referencia para evaluar modificaciones posteriores {[}2{]}, {[}3{]}. El versionado debe permitir reconstruir qué cambió, por qué se modificó, quién intervino y qué artefactos se vieron afectados. Los atributos de requisitos ---identificador, fuente, prioridad, dependencias, estado y criterio de aceptación--- facilitan este control {[}6{]}.
+
+La pre-traceability conecta el requisito con su origen, mientras que la post-traceability lo enlaza con elementos derivados como casos de uso, historias, módulos, modelos o pruebas {[}6{]}, {[}12{]}, {[}13{]}. La trazabilidad hacia atrás justifica el origen y la trazabilidad hacia adelante permite analizar impacto. En PE4, el proceso de cambio comprende RFC, análisis de impacto, deliberación del CCB, implementación, verificación y cierre {[}6{]}, {[}7{]}.
+
+\subsection{\texorpdfstring{3.4 Herramientas CASE para ingeniería de requisitos}{3.4 Herramientas CASE para ingeniería de requisitos}}\label{herramientas-case-para-ingenieruxeda-de-requisitos}
+
+Las herramientas CASE apoyan actividades del ciclo de vida mediante repositorios, modelos, reglas y automatización. Se suele distinguir entre upper CASE, orientadas a análisis, requisitos y diseño; lower CASE, vinculadas a construcción, pruebas y mantenimiento; e integrated CASE, que integran varias fases {[}5{]}, {[}6{]}. En gestión de requisitos son especialmente relevantes el repositorio, atributos, trazabilidad, baselines, control de cambios, colaboración, exportación e integración con herramientas del ciclo de vida.
+
+En esta práctica Jira se utilizó como herramienta CASE de gestión y evidencia. El tablero no se trató únicamente como lista de tareas: los requisitos se representaron mediante Stories, se organizaron en Epics, se añadieron Sub-tasks, campos personalizados, fuentes y elementos de trazabilidad. Esta estructura permite relacionar el ERS formal con un backlog operativo.
+
+\subsection{\texorpdfstring{3.5 Ingeniería de requisitos en procesos ágiles}{3.5 Ingeniería de requisitos en procesos ágiles}}\label{ingenieruxeda-de-requisitos-en-procesos-uxe1giles}
+
+En enfoques ágiles, los requisitos suelen gestionarse mediante un product backlog refinado de forma continua. Las historias de usuario expresan una necesidad desde la perspectiva de un rol y se complementan con criterios de aceptación verificables {[}10{]}. La Definition of Ready y la Definition of Done establecen acuerdos sobre cuándo un ítem está suficientemente preparado y cuándo puede considerarse terminado {[}5{]}, {[}8{]}.
+
+BDD refuerza la verificabilidad mediante ejemplos observables y Gherkin organiza escenarios con condiciones, acción y resultado esperado, comúnmente Given--When--Then {[}11{]}. Para el SICST, el enfoque más conveniente no es sustituir el ERS por historias, sino mantener un esquema híbrido: el ERS conserva precisión, privacidad, decisiones y línea base, mientras que Jira facilita priorización, colaboración y seguimiento iterativo.
+
+\section{\texorpdfstring{4. Inspección Fagan}{4. Inspección Fagan}}\label{inspecciuxf3n-fagan}
+
+\subsection{\texorpdfstring{4.1 Planificación, alcance y roles}{4.1 Planificación, alcance y roles}}\label{planificaciuxf3n-alcance-y-roles}
+
+La inspección formal se realizó sobre el ERS/SRS Entrega 3 (2A), versión 2A-Final-v2. El alcance comprendió las secciones 2.5, 3.2, 3.3, 4.1, 5.1 y 6.2, equivalentes a 18 páginas efectivas: 18, 34--37, 43--48, 50--52, 57, 80--81 y 96.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Integrante}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Rol}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Responsabilidad}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Zambrano Moya Angelo Paul & Moderador + Lector & Conducción, control del tiempo, parafraseo y consolidación en Anexo B. \\
+Naranjo Flores Anderson Jeampiere & Inspector 1 & Preparación individual y reporte de 8 defectos validados. \\
+Morán Pilaguano Frixon Fernando & Inspector 2 & Preparación individual y reporte de 8 defectos validados. \\
+\end{longtable}
+
+Tabla 1. Roles de la inspección Fagan.
+
+\subsection{\texorpdfstring{4.2 Preparación individual}{4.2 Preparación individual}}\label{preparaciuxf3n-individual}
+
+Anderson realizó su preparación el 09/08/2026 de 18:30 a 18:55, con 25 minutos de trabajo individual. Frixon realizó su preparación de 18:29 a 18:59, con 30 minutos. Cada inspector validó ocho defectos antes de la reunión, superando el mínimo de seis exigido por la guía.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Inspector}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Inicio}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Fin}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Tiempo}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Defectos validados}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Anderson & 18:30 & 18:55 & 25 min & 8 \\
+Frixon & 18:29 & 18:59 & 30 min & 8 \\
+\end{longtable}
+
+Tabla 2. Preparación individual previa a la reunión.
+
+\subsection{\texorpdfstring{4.3 Reunión de inspección}{4.3 Reunión de inspección}}\label{reuniuxf3n-de-inspecciuxf3n}
+
+La reunión se efectuó el 09/08/2026 mediante Zoom, de 19:59 a 20:27, con una duración de 28 minutos. El acta establece que no se discutieron soluciones durante la sesión. El Lector parafraseó los elementos revisados, los Inspectores presentaron sus hallazgos y el Moderador consolidó los defectos únicos en el Anexo B.
+
+\includegraphics[width=6in,height=2.61644in]{figuras/image1.jpeg}
+
+Figura 1. Evidencia real de la sesión Fagan en Zoom (1/3).
+
+\includegraphics[width=6in,height=2.75246in]{figuras/image2.jpeg}
+
+Figura 2. Evidencia real de la sesión Fagan en Zoom (2/3).
+
+\includegraphics[width=6in,height=2.75305in]{figuras/image3.jpeg}
+
+Figura 3. Evidencia real de la sesión Fagan en Zoom (3/3).
+
+\subsection{\texorpdfstring{4.4 Registro consolidado y métricas}{4.4 Registro consolidado y métricas}}\label{registro-consolidado-y-muxe9tricas}
+
+Se aceptaron 16 defectos únicos: 12 Mayores y 4 Menores; no se registraron defectos Críticos. Los tipos primarios quedaron distribuidos en 2 de ambigüedad, 2 de completitud, 4 de consistencia, 2 de verificabilidad, 4 de trazabilidad y 2 de factibilidad.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Métrica}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Resultado}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Interpretación / fórmula}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Defectos únicos & 16 & Cantidad total consolidada. \\
+Densidad & 0,89 defectos/página & 16 defectos / 18 páginas efectivas. \\
+Severidad & 12 Mayores; 4 Menores & 75 \% Mayor y 25 \% Menor. \\
+Detección & Anderson 50 \%; Frixon 50 \% & 8 defectos únicos por inspector. \\
+Esfuerzo inspección & 139 min-persona = 2,32 h-persona & 25 + 30 + (28 × 3). \\
+Esfuerzo total con corrección & 184 min-persona = 3,07 h-persona & Incluye 45 min de corrección/revisión por Angelo. \\
+\end{longtable}
+
+Tabla 3. Métricas de la inspección Fagan.
+
+\includegraphics[width=6.1in,height=3.55833in]{figuras/image4.png}
+
+Figura 4. Distribución de los defectos por tipo.
+
+La mayor concentración se produjo en consistencia y trazabilidad, con cuatro defectos por categoría. Esto muestra que el riesgo principal del ERS no estaba únicamente en la redacción aislada, sino en la coherencia entre prioridades, dependencias, evidencias y relaciones entre artefactos.
+
+\includegraphics[width=5.5in,height=3.7931in]{figuras/image5.png}
+
+Figura 5. Distribución de defectos por severidad.
+
+El 75 \% de los defectos fue clasificado como Mayor. Aunque no se registraron defectos Críticos, la proporción de Mayores justificó corregirlos antes de establecer una nueva versión del ERS.
+
+\includegraphics[width=5.5in,height=3.7931in]{figuras/image6.png}
+
+Figura 6. Defectos únicos aportados por cada inspector.
+
+La detección estuvo equilibrada: Anderson y Frixon aportaron ocho defectos únicos cada uno. La igualdad no implica que revisaran exactamente los mismos elementos; los Anexos A muestran cobertura distinta y complementaria.
+
+\includegraphics[width=6.1in,height=3.55833in]{figuras/image7.png}
+
+Figura 7. Esfuerzo registrado en preparación, reunión y corrección.
+
+El esfuerzo de inspección propiamente dicho fue de 139 minutos-persona (2,32 horas-persona). El archivo de métricas final incorpora además 45 minutos de corrección y revisión del ERS por Angelo, por lo que el esfuerzo total documentado alcanza 184 minutos-persona (3,07 horas-persona).
+
+\section{\texorpdfstring{5. Correcciones aplicadas}{5. Correcciones aplicadas}}\label{correcciones-aplicadas}
+
+La corrección se realizó después de cerrar la reunión Fagan, respetando la separación entre detección y solución. Se atendieron los 12 defectos Mayores y los 4 Menores, por lo que el registro final documenta 16 de 16 defectos corregidos. La versión resultante fue 2A-Fagan-v3.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{ID}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Sev.}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Elemento}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Antes}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Después / corrección}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+D-01 & Mayor & RF-28 & Alertas sin umbrales concretos. & Se definieron condiciones verificables: rutina vencida sin cumplimiento, EVA ≥ 7, Borg CR10 ≥ 7 o umbral de repeticiones incorrectas configurado; se registra causa, paciente, fecha y hora. \\
+D-02 & Mayor & RNF-07 & Disponibilidad del 95 \% sin ventana reproducible. & Se definió ventana de prueba declarada, inicio, fin, minutos de indisponibilidad y fórmula de cálculo. \\
+D-03 & Mayor & RF-15 / RF-06 / RF-07 & RF-15 Must dependía de RF-06 y RF-07 Should. & RF-06 y RF-07 pasaron a Must para mantener coherencia. \\
+D-04 & Menor & RNF-11 & ``Contraste adecuado'' no medible. & Se estableció relación mínima de 4,5:1 para texto normal. \\
+D-05 & Mayor & EV-* / EV2-* & Dos nomenclaturas sin equivalencia explícita. & Se documentó correspondencia histórica EV-* ↔ EV2-* y se aclaró EV-ENT-04. \\
+D-06 & Mayor & RNF-03 & 15 FPS sin hardware de referencia. & Se añadió entorno reproducible y registro de CPU, RAM, GPU, SO y navegador; prueba en 10 ejecuciones. \\
+D-07 & Mayor & RF-19 / RF-18 & RF-19 Must dependía de RF-18 Should. & RF-18 pasó a Must. \\
+D-08 & Mayor & EV-ENT-04 & Fuente citada pero no definida. & Se eliminó como fuente independiente y se conservaron las fuentes válidas. \\
+D-09 & Menor & RNF-10 & ``Módulos principales'' sin inventario. & Se enumeraron siete módulos principales y método de verificación. \\
+D-10 & Mayor & RNF-01 & 90 \% de usuarios sin tamaño de muestra. & Se fijó muestra mínima de 10: al menos 3 fisioterapeutas y 7 pacientes o expacientes. \\
+D-11 & Mayor & RF-24 / RF-22 & RF-24 Must dependía de RF-22 Should. & RF-22 pasó a Must. \\
+D-12 & Menor & RF-25 & ``Mensaje claro'' no verificable. & El mensaje debe incluir ejercicio, error detectado y corrección sugerida. \\
+D-13 & Mayor & RF-22 / RF-23 / RF-24 & Fuente EV-ENT-03 en fichas y EV-ENT-04 en clasificación. & Se armonizó la fuente a EV-ENT-03. \\
+D-14 & Mayor & RF-21 & IA sin conjunto de ejercicios/patrones delimitado. & Se acotó a ejercicios del catálogo compatibles con análisis automático y patrón configurado. \\
+D-15 & Mayor & RF-14 / CU & RF-14 asociado a CU distintos. & Se armonizó la relación con CU-02. \\
+D-16 & Menor & RNF-09 & Entorno incluía Firefox y RNF no lo verificaba. & Se alineó la compatibilidad con Chrome, Edge y Firefox. \\
+\end{longtable}
+
+Tabla 4. Registro antes/después de las correcciones Fagan.
+
+El resultado fue una versión 2A-Fagan-v3 con el 100 \% de los defectos Mayores corregidos y, adicionalmente, los cuatro defectos Menores atendidos. Esta versión se convirtió en la base sobre la que se analizaron las solicitudes de cambio del CCB.
+
+\section{\texorpdfstring{6. Gestión del cambio y CCB}{6. Gestión del cambio y CCB}}\label{gestiuxf3n-del-cambio-y-ccb}
+
+Después de Fagan se tramitaron tres RFC de naturaleza distinta, tal como exige la guía: una de alcance, una de calidad y una de restricción/normativa. RFC-01 se originó en un conflicto real detectado durante Fagan (D-01). Cada solicitud incluyó requisito afectado, cambio, justificación, impacto, costo, riesgo y recomendación.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 12\tabcolsep) * \real{0.1429}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{RFC}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Tipo}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Afecta}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Cambio}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Costo}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Riesgo}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Decisión}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+RFC-01 & Alcance & RF-28 & Agregar RF-33 para gestionar estados Pendiente, Revisada y Atendida. & 6 h-persona & Medio & APROBADO \\
+RFC-02 & Calidad & RF-28 / RNF & Agregar RNF-13: alerta visible en ≤ 2 s en 9 de 10 ejecuciones con entorno documentado. & 4 h-persona & Bajo-Medio & APROBADO CON CONDICIONES \\
+RFC-03 & Restricción / normativa & RNF-12, RES-02, RF-20, RF-26, RF-32 & Agregar RES-15: revocatoria bloquea nuevas capturas, evidencias y accesos dependientes. & 5 h-persona & Medio & APROBADO \\
+\end{longtable}
+
+Tabla 5. Resumen de las tres solicitudes de cambio.
+
+\subsection{\texorpdfstring{6.1 RFC-01 -- Alcance}{6.1 RFC-01 -- Alcance}}\label{rfc-01-alcance}
+
+Origen: conflicto D-01 de la inspección Fagan. RF-28 generaba alertas, pero el flujo posterior de atención no quedaba definido. Se propuso RF-33 para permitir al fisioterapeuta cambiar el estado de cada alerta entre Pendiente, Revisada y Atendida, conservando paciente, causa, fecha y hora. El CCB aprobó el cambio por mejorar la trazabilidad funcional sin convertir el sistema en un mecanismo de atención de emergencias.
+
+\subsection{\texorpdfstring{6.2 RFC-02 -- Calidad}{6.2 RFC-02 -- Calidad}}\label{rfc-02-calidad}
+
+Se propuso RNF-13 para exigir que una alerta generada al guardar una sesión quede registrada y visible en un máximo de 2 segundos en al menos 9 de 10 ejecuciones. El CCB la aprobó con condiciones: el equipo debe documentar navegador, equipo, conexión y condiciones del entorno para que el resultado sea reproducible y se interprete como métrica académica verificable.
+
+\subsection{\texorpdfstring{6.3 RFC-03 -- Restricción / normativa}{6.3 RFC-03 -- Restricción / normativa}}\label{rfc-03-restricciuxf3n-normativa}
+
+Se propuso RES-15 para formalizar la revocatoria del consentimiento. Al revocarse una autorización, el sistema debe bloquear nuevas capturas, nuevas evidencias y accesos de terceros dependientes de ella. No se eliminan automáticamente evidencias previas sin un procedimiento institucional definido. El CCB aprobó la RFC por fortalecer privacidad y control del paciente.
+
+\subsection{\texorpdfstring{6.4 Reunión, votación y versión resultante}{6.4 Reunión, votación y versión resultante}}\label{reuniuxf3n-votaciuxf3n-y-versiuxf3n-resultante}
+
+La reunión del CCB se realizó el 09/08/2026 mediante Zoom, con hora de inicio 9:15 y hora de fin 10:13, para una duración de 58 minutos. Angelo actuó como Presidente + Analista, Anderson como Representante del cliente y Frixon como Desarrollador. Cada integrante emitió un solo voto. RFC-01 y RFC-03 quedaron Aprobadas; RFC-02 quedó Aprobada con condiciones.
+
+Las decisiones se implementaron en el ERS/SRS. La versión 2A-CCB-v4 incorpora RF-33, RNF-13 y RES-15, y actualiza casos de uso, trazabilidad, priorización, arquitectura y modelo conceptual relacionados. El historial de revisiones del ERS registra la aplicación de las tres RFC el 09/08/2026.
+
+\section{\texorpdfstring{7. Trazabilidad en herramienta CASE}{7. Trazabilidad en herramienta CASE}}\label{trazabilidad-en-herramienta-case}
+
+Se creó en Jira el espacio ``Sistema Inteligente de Control y Seguimiento de Terapia Física'', clave SICST, con plantilla Scrum. El backlog se importó desde CSV para conservar la jerarquía y reducir la carga manual. Se otorgó acceso a los integrantes y al docente.
+
+\subsection{\texorpdfstring{7.1 Estructura del backlog}{7.1 Estructura del backlog}}\label{estructura-del-backlog}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Elemento}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Cantidad}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Descripción}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Epics & 4 & Áreas funcionales principales. \\
+Stories & 15 & Requisitos funcionales seleccionados del ERS. \\
+Sub-tasks & 10 & Dos criterios de aceptación en cinco Stories. \\
+Campos personalizados & 2 & Prioridad MoSCoW y Fuente del requisito. \\
+Actividades exportadas & 32 & 29 del backlog + 3 elementos auxiliares de trazabilidad. \\
+\end{longtable}
+
+Tabla 6. Estructura configurada en Jira.
+
+La exportación real Jira.csv contiene 32 actividades y 58 columnas. Su distribución por tipo es: 4 Epic, 15 Historia, 10 Subtarea y 3 Error. Los tres elementos de tipo Error fueron creados por el formulario enlazado de Jira para documentar trazabilidad representativa; su propósito no es registrar defectos del SICST, sino enlazar RF-01, RF-20 y RF-28 con artefactos hacia adelante.
+
+\includegraphics[width=6.2in,height=3.224in]{figuras/image8.jpeg}
+
+Figura 8. Backlog de Jira con Epics, Stories y Sub-tasks visibles.
+
+\subsection{\texorpdfstring{7.2 Campos personalizados y trazabilidad}{7.2 Campos personalizados y trazabilidad}}\label{campos-personalizados-y-trazabilidad}
+
+La trazabilidad hacia atrás se implementó mediante el campo Fuente del requisito y etiquetas RF. Las Stories contienen valores como EV-CUE-01, EV-ENT-01, EV-ENT-02, EV-ENT-03, EV-CONS-01 o RFC-01/CCB PE4. La trazabilidad hacia adelante se documentó para 15 requisitos en una matriz Stakeholder/Fuente → RF → CU → Clase/Módulo → Prueba.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Fuente}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{RF}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{CU}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Clase / módulo}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Prueba}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+EV-CUE-01 & RF-01 & CU-01 & Usuario / Rol / Autenticación & CP-RF01-Autenticacion \\
+EV-ENT-01 & RF-03 & CU-02 & Paciente / Gestión de pacientes & CP-RF03-RegistroPaciente \\
+EV-ENT-01 & RF-04 & CU-02 & EvaluacionInicial / Evaluación clínica & CP-RF04-MotivoConsulta \\
+EV-ENT-01 & RF-08 & CU-02 & SignoVital / Evaluación clínica & CP-RF08-SignosVitales \\
+EV-ENT-02 & RF-15 & CU-03 & PlanTerapeutico / Plan terapéutico & CP-RF15-PlanTerapeutico \\
+EV-ENT-02 & RF-16 & CU-03 & Ejercicio / Ejercicios & CP-RF16-CatalogoEjercicios \\
+EV-ENT-01, EV-ENT-02 & RF-17 & CU-04 & RutinaTerapeutica / Rutinas & CP-RF17-AsignarRutina \\
+EV-ENT-03 & RF-18 & CU-05 & GuiaVisual / Rutinas & CP-RF18-GuiasVisuales \\
+EV-ENT-03 & RF-19 & CU-05 & SesionRemota / Sesión remota & CP-RF19-SesionRemota \\
+EV-ENT-03, EV-CONS-01 & RF-20 & CU-05 & CapturaMovimiento / Captura & CP-RF20-Camara \\
+EV-ENT-03 & RF-21 & CU-06 & AnalisisMovimiento / IA & CP-RF21-AnalisisMovimiento \\
+EV-ENT-03 & RF-22 & CU-06 & DeteccionPostura / IA & CP-RF22-ErroresPostura \\
+EV-ENT-03 & RF-23 & CU-06 & Repeticion / IA & CP-RF23-ConteoRepeticiones \\
+EV-ENT-03 & RF-28 & CU-08 & Alerta / Seguimiento & CP-RF28-Alertas \\
+RFC-01 / CCB PE4 & RF-33 & CU-08 & Alerta / Seguimiento & CP-RF33-EstadoAlertas \\
+\end{longtable}
+
+Tabla 7. Matriz de trazabilidad de 15 requisitos funcionales.
+
+En Jira se crearon enlaces directos hacia adelante para RF-01, RF-20 y RF-28. Los doce requisitos restantes conservan la trazabilidad completa en la matriz y su fuente en el campo personalizado, pero no poseen un work item auxiliar enlazado hacia adelante. Esta limitación se reporta explícitamente, de acuerdo con la guía, en lugar de presentar enlaces que no existen.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Requisitos sin work item auxiliar de trazabilidad hacia adelante en Jira: RF-03, RF-04, RF-08, RF-15, RF-16, RF-17, RF-18, RF-19, RF-21, RF-22, RF-23 y RF-33.
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+\includegraphics[width=5.9in,height=5.60833in]{figuras/image9.jpeg}
+
+Figura 9. Detalle de RF-01: fuente, prioridad MoSCoW, subtareas y enlace visible.
+
+\includegraphics[width=5.9in,height=6.36174in]{figuras/image10.jpeg}
+
+Figura 10. Detalle de RF-20: fuente, prioridad MoSCoW, subtareas y enlace visible.
+
+\includegraphics[width=5.9in,height=5.72602in]{figuras/image11.jpeg}
+
+Figura 11. Detalle de RF-28: fuente, prioridad MoSCoW, subtareas y enlace visible.
+
+\subsection{\texorpdfstring{7.3 Estadísticas y exportación}{7.3 Estadísticas y exportación}}\label{estaduxedsticas-y-exportaciuxf3n}
+
+\includegraphics[width=6.1in,height=4.52957in]{figuras/image12.jpeg}
+
+Figura 12. Diagrama de flujo acumulado del espacio SICST en Jira.
+
+El Diagrama de flujo acumulado muestra el recuento de actividades en el estado Por hacer durante la sesión de configuración. Como evidencia reproducible, se exportó Jira.csv, archivo real de 32 actividades. Para el repositorio PE4 se recomienda renombrarlo a backlog\_export.csv sin modificar su contenido.
+
+\section{\texorpdfstring{8. Línea base con Git}{8. Línea base con Git}}\label{luxednea-base-con-git}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+ESTADO VERIFICABLE: el repositorio público informado por el equipo ya se incorpora al informe. Con los archivos recibidos todavía no se dispone de evidencia verificable de ocho commits distribuidos entre los integrantes, un tag anotado publicado ni las capturas de git log y git tag. Estos elementos no se declaran como cumplidos hasta adjuntar evidencia real.
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+El repositorio informado por el equipo es https://github.com/AngeloP2114/ISR401-PFC-ERS-SICST. La versión que debe establecerse como línea base es ERS/SRS 2A-CCB-v4, porque es la versión resultante del CCB y contiene las tres RFC aprobadas. La versión declarada en el ERS, CHANGELOG y tag debe coincidir exactamente.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Requisito Git}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Estado}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Repositorio GitHub: \url{https://github.com/AngeloP2114/ISR401-PFC-ERS-SICST} & URL incorporada; verificar acceso público en modo incógnito \\
+README con compilador, orden de comandos, main y dependencias & Pendiente de verificar en repositorio \\
+ERS/SRS 2A-CCB-v4 & Disponible; verificar publicación en el repositorio \\
+Mínimo 8 commits distribuidos y autoría de todos & Pendiente de evidencia \\
+CHANGELOG con RFC-01, RFC-02 y RFC-03 & Pendiente de verificar \\
+Tag anotado de baseline publicado & Pendiente de evidencia \\
+Capturas git log y git tag -n & Pendiente de adjuntar \\
+\end{longtable}
+
+Tabla 8. Estado verificable de la línea base Git con la evidencia recibida.
+
+Antes de la entrega, los estados pendientes deben sustituirse únicamente por evidencia real del repositorio: nombres exactos de commits, tag anotado y capturas. La versión declarada en portada, historial, CHANGELOG y tag debe ser idéntica.
+
+\section{\texorpdfstring{9. Comparativa de herramientas CASE}{9. Comparativa de herramientas CASE}}\label{comparativa-de-herramientas-case}
+
+La comparación considera Jira, IBM Engineering Requirements Management DOORS Next, Jama Connect y ReqView. Los juicios se sustentan en documentación oficial y se interpretan en función del PFC del SICST, que es un proyecto académico pequeño con ERS formal, necesidad de trazabilidad, colaboración y control de versiones.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Criterio}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Jira}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{IBM DOORS Next}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Jama Connect}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{ReqView}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Funciones de IR & Backlog, campos, workflows y reportes; no es un gestor formal de requisitos especializado {[}15{]}. & Gestión formal de requisitos, atributos, baselines, cambios y artefactos ricos {[}16{]}. & Autoría, revisión, verificación, riesgo y gestión de requisitos en plataforma especializada {[}17{]}. & Documentos estructurados, atributos, requisitos, riesgos, verificaciones y reportes {[}18{]}. \\
+Trazabilidad & Se implementa con campos, etiquetas, enlaces y apps; flexible, pero requiere disciplina del equipo. & Trazabilidad extremo a extremo entre requisitos, desarrollo y pruebas; análisis de impacto {[}16{]}. & Live Traceability con visibilidad hacia atrás/adelante y análisis de impacto {[}17{]}. & Enlaces dirigidos, matriz, cobertura, impacto y enlaces entre proyectos {[}18{]}. \\
+Colaboración & Muy alta para equipos pequeños: web, comentarios, asignaciones y vistas compartidas {[}15{]}. & Alta, con cliente web, revisiones, comentarios, dashboards y colaboración ELM {[}16{]}. & Alta; revisiones, comentarios y licencias de stakeholder/reviewer {[}17{]}. & Buena; TEAM añade colaboración, dashboards y configuración compartida {[}18{]}. \\
+Integración con VCS & Indirecta mediante integraciones/apps; el ERS no se versiona nativamente en Jira. & ELM aporta configuración y change sets; Git no es el mecanismo central de DOORS Next {[}16{]}. & Integra herramientas de ingeniería; no se presenta como gestor Git nativo {[}17{]}. & Fortaleza clara: control de versiones, historial, baselines y colaboración mediante Git/SVN {[}18{]}. \\
+Costo & Plan Free hasta 10 usuarios; adecuado para el equipo académico {[}15{]}. & Producto empresarial/licenciado; mayor costo y administración relativa para un equipo pequeño {[}16{]}. & Licenciamiento comercial orientado a organizaciones; reviewer/hosting incluidos según plan {[}17{]}. & FREE limitado; PRO y TEAM son de pago, aunque ofrece licencia educativa para universidades {[}18{]}. \\
+Curva de aprendizaje & Baja-media para el equipo: ya se utilizó en PE4 y permite importación CSV. & Alta para un equipo académico por amplitud de ELM, configuración y conceptos especializados. & Media-alta: plataforma especializada con procesos de revisión, riesgo y trazabilidad. & Media: interfaz tabular y conceptos formales; integración Git requiere mayor disciplina técnica. \\
+Adecuación al SICST & Alta en el corto plazo por costo, colaboración y evidencia ya creada. & Alta técnicamente en proyectos regulados grandes, pero sobredimensionada para el PFC actual. & Alta si el proyecto evoluciona a un entorno regulado con fuerte revisión y compliance. & Alta como alternativa formal ligera si se desea combinar requisitos y Git de forma más nativa. \\
+\end{longtable}
+
+Tabla 9. Comparación contextual de cuatro herramientas CASE para ingeniería de requisitos.
+
+\subsection{\texorpdfstring{9.1 Recomendación para el PFC}{9.1 Recomendación para el PFC}}\label{recomendaciuxf3n-para-el-pfc}
+
+Para el estado actual del SICST se recomienda mantener Jira como herramienta CASE operativa. La decisión no se basa en que sea la herramienta más especializada, sino en el equilibrio entre costo, facilidad de colaboración, estructura de backlog, campos personalizados, exportación y experiencia ya adquirida por el equipo. El plan Free admite hasta 10 usuarios según la información oficial consultada {[}15{]}, suficiente para el equipo y el docente.
+
+Si el SICST evolucionara hacia un producto con exigencias regulatorias y gestión formal de requisitos a mayor escala, DOORS Next y Jama Connect ofrecerían capacidades más profundas de compliance, revisión y trazabilidad {[}16{]}, {[}17{]}. ReqView resulta especialmente interesante como alternativa de menor escala por su soporte explícito de trazabilidad y versionado con Git {[}18{]}.
+
+\section{\texorpdfstring{10. IR tradicional frente a IR ágil}{10. IR tradicional frente a IR ágil}}\label{ir-tradicional-frente-a-ir-uxe1gil}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 6\tabcolsep) * \real{0.2500}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Dimensión}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{IR tradicional / documental}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{IR ágil}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Aplicación al SICST}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Documentación & ERS/SRS estructurado, atributos, baselines, actas y control formal. & Historias, backlog y criterios de aceptación; documentación evolutiva. & En SICST conviene conservar ERS formal por privacidad, IA y trazabilidad, y usar Jira como capa operativa. \\
+Gestión del cambio & RFC, análisis de impacto, CCB y nueva línea base. & Refinamiento continuo y repriorización del backlog. & Cambios con efecto clínico/privacidad deben pasar por control formal; mejoras de interfaz pueden refinarse ágilmente. \\
+Participación de stakeholders & Hitos, revisiones y aprobaciones formales. & Interacción frecuente e incremental. & Fisioterapeutas y pacientes pueden validar prototipos iterativamente, mientras decisiones de alcance se documentan. \\
+Herramientas & ERS, matrices, CASE formal, repositorio y control de configuración. & Jira, tableros, automatización, BDD y herramientas colaborativas. & La combinación ERS + Jira + Git ofrece mejor cobertura que usar una sola herramienta. \\
+Velocidad & Menor velocidad de cambio, mayor formalidad y auditabilidad. & Mayor rapidez para ajustar prioridades y criterios. & El SICST necesita rapidez en UX/IA, pero no debe sacrificar evidencia y control de consentimiento. \\
+Escalabilidad & Fuerte para proyectos regulados o con muchos artefactos y dependencias. & Fuerte para equipos que entregan incrementos frecuentes; requiere disciplina al crecer. & Un enfoque híbrido permite escalar sin perder trazabilidad entre fuente, RF, CU, módulo y prueba. \\
+\end{longtable}
+
+Tabla 10. Contraste entre IR tradicional y ágil en seis dimensiones.
+
+La comparación muestra que ninguno de los dos enfoques es suficiente por sí solo para el SICST. El componente clínico, la privacidad, el consentimiento y las decisiones de CCB justifican documentación y baselines formales {[}1{]}, {[}6{]}. Al mismo tiempo, las historias, prioridades y criterios de aceptación permiten iterar sobre interfaz y comportamiento de forma más rápida {[}10{]}, {[}11{]}. Por ello, se recomienda un enfoque híbrido: ERS como fuente controlada y Jira como representación operativa del trabajo.
+
+\section{\texorpdfstring{11. Conclusiones críticas}{11. Conclusiones críticas}}\label{conclusiones-cruxedticas}
+
+\textbf{1.} La inspección Fagan produjo un resultado cuantitativamente significativo: 16 defectos en 18 páginas efectivas (0,89 defectos/página), con 75 \% de severidad Mayor. Además, consistencia y trazabilidad concentraron la mayor cantidad de hallazgos. Esto indica que el principal problema del ERS no era únicamente redaccional, sino de coherencia entre requisitos, prioridades, evidencias y artefactos relacionados.
+
+\textbf{2.} La corrección posterior confirmó el valor de separar detección y solución. Se atendieron los 16 defectos y el esfuerzo total documentado alcanzó 3,07 horas-persona, de las cuales 2,32 correspondieron a preparación y reunión y 0,75 a corrección/revisión. La mejora de calidad tuvo un costo medible, pero permitió obtener una base más coherente antes del CCB.
+
+\textbf{3.} El CCB evitó modificar el ERS de manera informal. Las tres RFC tuvieron decisiones diferenciadas: dos aprobadas y una aprobada con condiciones. El resultado 2A-CCB-v4 incorporó RF-33, RNF-13 y RES-15, demostrando que el control del cambio debe reflejar simultáneamente alcance, calidad, privacidad y trazabilidad.
+
+\textbf{4.} Jira permitió convertir parte del ERS en una estructura operativa de 4 Epics, 15 Stories y 10 Sub-tasks, con campos de fuente y MoSCoW. Sin embargo, la práctica también evidenció una limitación: solo RF-01, RF-20 y RF-28 recibieron un work item auxiliar de trazabilidad directa hacia adelante; los otros doce dependen de la matriz. Esta diferencia debe cerrarse si se busca el nivel máximo de trazabilidad verificable dentro de la herramienta.
+
+\textbf{5.} Para el SICST resulta más adecuado un enfoque híbrido. La formalidad del ERS, Fagan, CCB y futura línea base Git es necesaria para decisiones auditables, mientras Jira aporta velocidad, colaboración y seguimiento. La herramienta más conveniente no es necesariamente la más potente: para el PFC actual, Jira ofrece el mejor equilibrio práctico, mientras ReqView, Jama Connect o DOORS Next serían más apropiados si aumentaran la regulación, la escala o la necesidad de gestión formal especializada.
+
+\section{\texorpdfstring{12. Distribución del trabajo}{12. Distribución del trabajo}}\label{distribuciuxf3n-del-trabajo}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Integrante}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Aportes / roles}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Evidencia principal}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Naranjo Flores Anderson Jeampiere & Inspector 1; preparación individual Fagan; soporte a contexto, resumen, objetivos y fundamento teórico; Representante del cliente en CCB. & Anexo A Inspector 1; argumentos CCB; revisión de secciones 1--3. \\
+Zambrano Moya Angelo Paul & Moderador + Lector Fagan; consolidación Anexo B; correcciones del ERS; Presidente + Analista CCB; configuración Jira; integración de secciones 4--8. & Acta Fagan, Anexo B, métricas, versión 2A-Fagan-v3, CCB, 2A-CCB-v4, Jira y CSV. \\
+Morán Pilaguano Frixon Fernando & Inspector 2; preparación individual Fagan; Desarrollador en CCB; apoyo en trazabilidad, modelado y revisión de comparativas/anexos. & Anexo A Inspector 2; argumentos CCB; revisión de secciones 9--14 y QA documental. \\
+\end{longtable}
+
+Tabla 11. Distribución del trabajo por integrante.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+La distribución deberá contrastarse con el historial real de commits del repositorio. No se atribuyen commits, tags ni autorías que no estén respaldados por evidencia verificable.
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+\section{\texorpdfstring{13. Referencias}{13. Referencias}}\label{referencias}
+
+\begin{quote}
+{[}1{]} IEEE/ISO/IEC, ISO/IEC/IEEE 29148:2018 -- Systems and Software Engineering: Life Cycle Processes: Requirements Engineering. IEEE, 2018. doi: 10.1109/IEEESTD.2018.8559686.
+
+{[}2{]} IEEE/ISO/IEC, ISO/IEC/IEEE 15288:2023 -- Systems and Software Engineering: System Life Cycle Processes. IEEE, 2023.
+
+{[}3{]} IEEE/ISO/IEC, ISO/IEC/IEEE 12207:2017 -- Systems and Software Engineering: Software Life Cycle Processes. IEEE, 2017.
+
+{[}4{]} ISO/IEC, ISO/IEC 25010:2023 -- Systems and Software Quality Requirements and Evaluation (SQuaRE): Product Quality Model. ISO, 2023.
+
+{[}5{]} H. Washizaki, Ed., Guide to the Software Engineering Body of Knowledge (SWEBOK Guide), Version 4.0. Los Alamitos, CA, USA: IEEE Computer Society, 2024.
+
+{[}6{]} K. Pohl, Requirements Engineering: Fundamentals, Principles, and Techniques, 2nd ed. Berlin, Germany: Springer, 2025. doi: 10.1007/978-3-662-69204-2.
+
+{[}7{]} Project Management Institute, A Guide to the Project Management Body of Knowledge (PMBOK Guide), 7th ed. Newtown Square, PA, USA: PMI, 2021.
+
+{[}8{]} International Requirements Engineering Board, IREB Certified Professional for Requirements Engineering -- Foundation Level Syllabus, Version 3.1. Karlsruhe, Germany: IREB, 2022.
+
+{[}9{]} M. E. Fagan, ``Design and code inspections to reduce errors in program development,'' IBM Systems Journal, vol. 15, no. 3, pp. 182--211, 1976. doi: 10.1147/sj.153.0182.
+
+{[}10{]} M. Cohn, User Stories Applied: For Agile Software Development. Boston, MA, USA: Addison-Wesley, 2004.
+
+{[}11{]} J. F. Smart, BDD in Action: Behavior-Driven Development for the Whole Software Lifecycle. Shelter Island, NY, USA: Manning Publications, 2014.
+
+{[}12{]} O. C. Z. Gotel and A. C. W. Finkelstein, ``An analysis of the requirements traceability problem,'' in Proc. IEEE Int. Conf. Requirements Engineering (ICRE), Colorado Springs, CO, USA, 1994, pp. 94--101. doi: 10.1109/ICRE.1994.292398.
+
+{[}13{]} J. Cleland-Huang, O. Gotel, and A. Zisman, Eds., Software and Systems Traceability. London, U.K.: Springer, 2012. doi: 10.1007/978-1-4471-2239-5.
+
+{[}14{]} K. Wiegers and J. Beatty, Software Requirements, 3rd ed. Redmond, WA, USA: Microsoft Press, 2013.
+
+{[}15{]} Atlassian, ``Jira Pricing and Plans,'' official product documentation, 2026. Available: https://www.atlassian.com/software/jira/jira/pricing. Accessed: Aug. 9, 2026.
+
+{[}16{]} IBM, ``IBM Engineering Requirements Management DOORS Next -- Overview and Traceability,'' official documentation, 2026. Available: https://www.ibm.com/products/requirements-management and https://www.ibm.com/docs/en/engineering-lifecycle-management-suite/doors-next/7.2.0. Accessed: Aug. 9, 2026.
+
+{[}17{]} Jama Software, ``Jama Connect Requirements Management, Traceability and Pricing,'' official product information, 2026. Available: https://www.jamasoftware.com/solutions/requirements-management/ and https://www.jamasoftware.com/platform/pricing/. Accessed: Aug. 9, 2026.
+
+{[}18{]} ReqView, ``Requirements Management Tool, Traceability and Pricing Plans,'' official documentation, 2026. Available: https://www.reqview.com/ and https://www.reqview.com/pricing/. Accessed: Aug. 9, 2026.
+\end{quote}
+
+\section{\texorpdfstring{14. Anexos A--F}{14. Anexos A--F}}\label{anexos-af}
+
+Los anexos se organizan conforme a la guía PE4 y reúnen las evidencias reales disponibles. La URL del repositorio GitHub ya se incorpora; las capturas y datos de commits/tag se mantienen como pendientes únicamente mientras no exista evidencia verificable en los archivos recibidos.
+
+\subsection{\texorpdfstring{14.1 Anexo A -- Listas de verificación de inspección}{14.1 Anexo A -- Listas de verificación de inspección}}\label{anexo-a-listas-de-verificaciuxf3n-de-inspecciuxf3n}
+
+Se anexan las copias firmadas de los dos inspectores. Anderson registró 8 defectos validados con preparación de 18:30 a 18:55; Frixon registró 8 defectos validados de 18:29 a 18:59.
+
+\includegraphics[width=6in,height=4.24345in]{figuras/image13.png}
+
+Figura 13. Anexo A. Inspector 1 -- Anderson -- página 1.
+
+\includegraphics[width=6in,height=4.24345in]{figuras/image14.png}
+
+Figura 14. Anexo A. Inspector 1 -- Anderson -- página 2.
+
+\includegraphics[width=6in,height=4.24345in]{figuras/image15.png}
+
+Figura 15. Anexo A. Inspector 2 -- Frixon -- página 1.
+
+\includegraphics[width=6in,height=4.24345in]{figuras/image16.png}
+
+Figura 16. Anexo A. Inspector 2 -- Frixon -- página 2.
+
+\subsection{\texorpdfstring{14.2 Anexo B -- Registro de defectos}{14.2 Anexo B -- Registro de defectos}}\label{anexo-b-registro-de-defectos}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{ID}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Requisito / sección}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Descripción del defecto (síntesis)}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Severidad}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Corrección (síntesis)}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+D-01 & RF-28 & Alertas sin umbrales concretos. & Mayor & Se definieron condiciones verificables: rutina vencida sin cumplimiento, EVA ≥ 7, Borg CR10 ≥ 7 o umbral de repeticiones incorrectas configurado; se registra causa, paciente, fecha y hora. \\
+D-02 & RNF-07 & Disponibilidad del 95 \% sin ventana reproducible. & Mayor & Se definió ventana de prueba declarada, inicio, fin, minutos de indisponibilidad y fórmula de cálculo. \\
+D-03 & RF-15 / RF-06 / RF-07 & RF-15 Must dependía de RF-06 y RF-07 Should. & Mayor & RF-06 y RF-07 pasaron a Must para mantener coherencia. \\
+D-04 & RNF-11 & ``Contraste adecuado'' no medible. & Menor & Se estableció relación mínima de 4,5:1 para texto normal. \\
+D-05 & EV-* / EV2-* & Dos nomenclaturas sin equivalencia explícita. & Mayor & Se documentó correspondencia histórica EV-* ↔ EV2-* y se aclaró EV-ENT-04. \\
+D-06 & RNF-03 & 15 FPS sin hardware de referencia. & Mayor & Se añadió entorno reproducible y registro de CPU, RAM, GPU, SO y navegador; prueba en 10 ejecuciones. \\
+D-07 & RF-19 / RF-18 & RF-19 Must dependía de RF-18 Should. & Mayor & RF-18 pasó a Must. \\
+D-08 & EV-ENT-04 & Fuente citada pero no definida. & Mayor & Se eliminó como fuente independiente y se conservaron las fuentes válidas. \\
+D-09 & RNF-10 & ``Módulos principales'' sin inventario. & Menor & Se enumeraron siete módulos principales y método de verificación. \\
+D-10 & RNF-01 & 90 \% de usuarios sin tamaño de muestra. & Mayor & Se fijó muestra mínima de 10: al menos 3 fisioterapeutas y 7 pacientes o expacientes. \\
+D-11 & RF-24 / RF-22 & RF-24 Must dependía de RF-22 Should. & Mayor & RF-22 pasó a Must. \\
+D-12 & RF-25 & ``Mensaje claro'' no verificable. & Menor & El mensaje debe incluir ejercicio, error detectado y corrección sugerida. \\
+D-13 & RF-22 / RF-23 / RF-24 & Fuente EV-ENT-03 en fichas y EV-ENT-04 en clasificación. & Mayor & Se armonizó la fuente a EV-ENT-03. \\
+D-14 & RF-21 & IA sin conjunto de ejercicios/patrones delimitado. & Mayor & Se acotó a ejercicios del catálogo compatibles con análisis automático y patrón configurado. \\
+D-15 & RF-14 / CU & RF-14 asociado a CU distintos. & Mayor & Se armonizó la relación con CU-02. \\
+D-16 & RNF-09 & Entorno incluía Firefox y RNF no lo verificaba. & Menor & Se alineó la compatibilidad con Chrome, Edge y Firefox. \\
+\end{longtable}
+
+Tabla 12. Anexo B. Registro consolidado de 16 defectos y corrección posterior.
+
+Control de la reunión: 16 defectos únicos; 0 Críticos; 12 Mayores; 4 Menores. Estado posterior a Fagan: 16 defectos corregidos en 2A-Fagan-v3.
+
+\subsection{\texorpdfstring{14.3 Anexo C -- RFC y Acta del CCB}{14.3 Anexo C -- RFC y Acta del CCB}}\label{anexo-c-rfc-y-acta-del-ccb}
+
+A continuación se incorporan las tres RFC firmadas y el Acta CCB firmada, conservando sus páginas como evidencia documental.
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image17.png}
+
+Figura 17. Anexo C. RFC01 -- página 1.
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image18.png}
+
+Figura 18. Anexo C. RFC01 -- página 2.
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image19.png}
+
+Figura 19. Anexo C. RFC02 -- página 1.
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image20.png}
+
+Figura 20. Anexo C. RFC02 -- página 2.
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image21.png}
+
+Figura 21. Anexo C. RFC03 -- página 1.
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image22.png}
+
+Figura 22. Anexo C. RFC03 -- página 2.
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image23.png}
+
+Figura 23. Anexo C. Acta CCB -- página 1.
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image24.png}
+
+Figura 24. Anexo C. Acta CCB -- página 2.
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image25.png}
+
+Figura 25. Anexo C. Acta CCB -- página 3.
+
+\subsection{\texorpdfstring{14.4 Anexo D -- Exportación del backlog}{14.4 Anexo D -- Exportación del backlog}}\label{anexo-d-exportaciuxf3n-del-backlog}
+
+Archivo real exportado: Jira.csv. Para el repositorio PE4 deberá conservarse como backlog\_export.csv. La exportación contiene 32 actividades y 58 columnas, con los campos personalizados Fuente del requisito, Prioridad MoSCoW y Principal (Parent).
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 2\tabcolsep) * \real{0.5000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Tipo de incidencia}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Cantidad}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Epic & 4 \\
+Historia & 15 \\
+Subtarea & 10 \\
+Error (elemento auxiliar de trazabilidad) & 3 \\
+TOTAL & 32 \\
+\end{longtable}
+
+Tabla 13. Resumen de la exportación real de Jira.
+
+\subsection{\texorpdfstring{14.5 Anexo E -- Evidencias visuales}{14.5 Anexo E -- Evidencias visuales}}\label{anexo-e-evidencias-visuales}
+
+Se incluyen capturas del tablero CASE, detalle de tres issues con enlaces visibles, estadísticas y evidencia de la sesión Fagan. Las capturas de Git se añadirán después de ejecutar el Paso 4.
+
+\includegraphics[width=5.9in,height=3.068in]{figuras/image8.jpeg}
+
+Figura 26. Anexo E. Tablero/lista completo con jerarquía.
+
+\includegraphics[width=5.9in,height=5.60833in]{figuras/image9.jpeg}
+
+Figura 27. Anexo E. Detalle RF-01 con trazabilidad.
+
+\includegraphics[width=5.9in,height=6.36174in]{figuras/image10.jpeg}
+
+Figura 28. Anexo E. Detalle RF-20 con trazabilidad.
+
+\includegraphics[width=5.9in,height=5.72602in]{figuras/image11.jpeg}
+
+Figura 29. Anexo E. Detalle RF-28 con trazabilidad.
+
+\includegraphics[width=5.9in,height=4.38106in]{figuras/image12.jpeg}
+
+Figura 30. Anexo E. Panel de estadísticas -- flujo acumulado.
+
+\includegraphics[width=5.9in,height=2.57283in]{figuras/image1.jpeg}
+
+Figura 31. Anexo E. Evidencia real de la sesión Fagan en Zoom.
+
+\includegraphics[width=5.9in,height=2.70659in]{figuras/image2.jpeg}
+
+Figura 32. Anexo E. Evidencia real de la sesión Fagan en Zoom.
+
+\includegraphics[width=5.9in,height=2.70716in]{figuras/image3.jpeg}
+
+Figura 33. Anexo E. Evidencia real de la sesión Fagan en Zoom.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Capturas Git requeridas por la rúbrica (git log -\/-oneline -\/-graph -\/-decorate y git tag -n): pendientes de evidencia verificable. No se sustituyen con capturas simuladas.
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+\subsection{\texorpdfstring{14.6 Anexo F -- Declaración de uso de IA}{14.6 Anexo F -- Declaración de uso de IA}}\label{anexo-f-declaraciuxf3n-de-uso-de-ia}
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 8\tabcolsep) * \real{0.2000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Herramienta}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Versión}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Tarea asistida}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Fragmento afectado}
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+\textbf{Verificación crítica}
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+OpenAI ChatGPT & GPT-5.6 Sol & Apoyo en estructuración, redacción técnica, integración de tablas y revisión de coherencia del informe. & Secciones 4--14 y organización global del documento. & La información factual se contrastó con ERS/SRS 2A-CCB-v4, actas firmadas, Anexo B, métricas, Jira.csv y capturas reales. No se inventaron firmas, defectos, decisiones CCB, commits ni tags. \\
+\end{longtable}
+
+Tabla 14. Declaración de uso de IA.
+
+Declaración: el equipo reconoce el uso de la herramienta indicada como asistencia para redacción e integración. La responsabilidad sobre la veracidad, coherencia y entrega de los artefactos corresponde a los integrantes. Las evidencias empíricas y decisiones formales fueron verificadas contra los archivos reales de la práctica.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3333}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Firma: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Firma: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Firma: \_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\textbf{Angelo Zambrano} & \textbf{Anderson Naranjo} & \textbf{Frixon Morán} \\
+\end{longtable}
+
+Tabla 15. Anexo F. Espacios de firma de la declaración de uso de IA.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 0\tabcolsep) * \real{1.0000}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Antes de la entrega final, los tres integrantes deben firmar personalmente esta declaración. Las firmas no se reutilizan automáticamente desde otras actas.
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+\end{longtable}
+
+\subsection{\texorpdfstring{14.7 Evidencia complementaria -- Acta Fagan firmada}{14.7 Evidencia complementaria -- Acta Fagan firmada}}\label{evidencia-complementaria-acta-fagan-firmada}
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image26.png}
+
+Figura 34. Acta Fagan firmada -- página 1.
+
+\includegraphics[width=6in,height=7.76471in]{figuras/image27.png}
+
+Figura 35. Acta Fagan firmada -- página 2.
+
+\end{document}
