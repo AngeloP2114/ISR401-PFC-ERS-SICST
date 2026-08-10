@@ -1,0 +1,20 @@
+name: Evidencia Git
+
+on:
+  workflow_dispatch:
+
+jobs:
+  evidencia:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Mostrar historial
+        run: git log --oneline --graph --decorate -n 30
+
+      - name: Mostrar tags
+        run: git tag -n
