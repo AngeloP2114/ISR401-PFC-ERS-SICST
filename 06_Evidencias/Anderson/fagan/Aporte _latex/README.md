@@ -40,4 +40,4 @@ latexmk -xelatex -synctex=1 -interaction=nonstopmode -file-line-error PE4_ANDERS
 
 ## Nota de consistencia
 
-El Anexo A del LaTeX utiliza los mismos ocho defectos validados del documento firmado: D-AN-01 a D-AN-08. La versión firmada oficial se conserva un nivel arriba, dentro de `fagan/Anderson/`.
+El Anexo A del LaTeX utiliza los mismos ocho defectos validados del documento firmado: D-AN-01 a D-AN-08. La versión firmada oficial se conserva un nivel arriba, dentro de `fagan/`.
