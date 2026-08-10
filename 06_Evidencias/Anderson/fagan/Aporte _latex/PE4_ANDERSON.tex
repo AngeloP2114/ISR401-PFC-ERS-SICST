@@ -1,0 +1,459 @@
+% !TeX program = xelatex
+% !BIB program = biber
+
+\documentclass[12pt,a4paper]{article}
+
+% ============================================================
+% PE4 - PARTE DE ANDERSON
+% TODO ESTÁ EN ESTE ÚNICO ARCHIVO .TEX
+% Compilador recomendado: XeLaTeX
+% ============================================================
+
+\usepackage[a4paper,top=2.6cm,bottom=2.5cm,left=2.5cm,right=2.5cm,headheight=16pt]{geometry}
+\usepackage{fontspec}
+\IfFontExistsTF{Times New Roman}
+  {\setmainfont{Times New Roman}}
+  {\setmainfont{Tinos}}
+
+\usepackage[spanish,es-nodecimaldot]{babel}
+
+% Nomenclatura académica para tablas
+\addto\captionsspanish{%
+  \renewcommand{\tablename}{Tabla}%
+  \renewcommand{\listtablename}{Índice de tablas}%
+}
+\renewcommand{\thetable}{\arabic{table}}
+\usepackage{microtype}
+\usepackage{setspace}
+\setstretch{1.12}
+
+\usepackage{graphicx}
+\usepackage[table]{xcolor}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{tabularray}
+\UseTblrLibrary{booktabs}
+\DefTblrTemplate{contfoot-text}{normal}{Continúa en la página siguiente}
+\SetTblrTemplate{contfoot-text}{normal}
+\DefTblrTemplate{conthead-text}{normal}{(Continuación)}
+\SetTblrTemplate{conthead-text}{normal}
+
+\usepackage{enumitem}
+\usepackage{ragged2e}
+\setlength{\RaggedRightParindent}{0pt}
+\setlength{\JustifyingParindent}{0pt}
+\usepackage{needspace}
+\usepackage{pdflscape}
+\usepackage{caption}
+\usepackage{hyperref}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\definecolor{grisencabezado}{HTML}{EFEFEF}
+\definecolor{grislinea}{HTML}{777777}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue,
+    pdfauthor={Naranjo Flores Anderson Jeampiere},
+    pdftitle={PE4 Unidad IV - Parte Anderson - SICST}
+}
+
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.55em}
+
+\titleformat{\section}
+  {\normalfont\bfseries\fontsize{14}{16}\selectfont}
+  {\thesection.}{0.55em}{}
+\titleformat{\subsection}
+  {\normalfont\bfseries\fontsize{12}{14}\selectfont}
+  {\thesubsection}{0.55em}{}
+\titleformat{\subsubsection}
+  {\normalfont\bfseries\fontsize{12}{14}\selectfont}
+  {\thesubsubsection}{0.55em}{}
+
+\titlespacing*{\section}{0pt}{1.2em}{0.65em}
+\titlespacing*{\subsection}{0pt}{1.0em}{0.45em}
+\titlespacing*{\subsubsection}{0pt}{0.8em}{0.35em}
+
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Ingeniería de Requerimientos (ISR-401)}
+\fancyhead[R]{\small PE4 - Unidad IV}
+\fancyfoot[C]{\small \thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+\AtBeginDocument{\justifying\setlength{\parindent}{0pt}}
+
+\captionsetup{
+    font=small,
+    labelfont=bf,
+    skip=8pt
+}
+
+\newcommand{\Sistema}{Sistema Inteligente de Control y Seguimiento de Terapia Física}
+\newcommand{\Sigla}{SICST}
+\newcommand{\RepoURL}{https://github.com/AngeloP2114/ISR401-PFC-ERS-SICST}
+\newcommand{\VersionERS}{2A-Final-v2}
+
+\usepackage{csquotes}
+\usepackage[
+    backend=biber,
+    style=ieee,
+    sorting=none,
+    giveninits=true
+]{biblatex}
+\addbibresource{referencias.bib}
+
+\begin{document}
+\justifying
+\setlength{\parindent}{0pt}
+
+% ============================================================
+% CARÁTULA
+% ============================================================
+
+\begin{titlepage}
+\thispagestyle{empty}
+\centering
+
+{\bfseries\fontsize{17}{20}\selectfont UNIVERSIDAD TÉCNICA ESTATAL DE QUEVEDO\par}
+\vspace{0.35cm}
+{\bfseries\fontsize{14}{17}\selectfont FACULTAD DE CIENCIAS DE LA COMPUTACIÓN\par}
+\vspace{0.18cm}
+{\bfseries\fontsize{13}{16}\selectfont CARRERA DE INGENIERÍA DE SOFTWARE\par}
+
+\vspace{1.25cm}
+
+{\bfseries\fontsize{17}{20}\selectfont PRÁCTICA EXPERIMENTAL UNIDAD IV - PE4\par}
+\vspace{0.3cm}
+{\bfseries\fontsize{14}{17}\selectfont Validación, Gestión de Requisitos y Herramientas CASE\par}
+
+\vspace{1.0cm}
+
+{\bfseries\fontsize{16}{19}\selectfont \Sistema\par}
+\vspace{0.12cm}
+{\bfseries\fontsize{14}{17}\selectfont (\Sigla)\par}
+
+\vspace{1.0cm}
+
+\renewcommand{\arraystretch}{1.35}
+\begin{tabularx}{0.94\textwidth}{|>{\bfseries\RaggedRight\arraybackslash}p{4.0cm}|>{\RaggedRight\arraybackslash}X|}
+\hline
+\rowcolor{grisencabezado}
+Campo & Información \\ \hline
+Asignatura & Ingeniería de Requerimientos (ISR-401) \\ \hline
+Nivel & Cuarto nivel \\ \hline
+Periodo académico & 2026--2027 PPA \\ \hline
+Sistema & \Sistema \\ \hline
+ERS inspeccionado & Versión \VersionERS \\ \hline
+Integrantes &
+MORAN PILAGUANO FRIXON FERNANDO -- Inspector 2 \newline
+NARANJO FLORES ANDERSON JEAMPIERE -- Inspector 1 \newline
+ZAMBRANO MOYA ANGELO PAUL -- Moderador e integrador \\ \hline
+Fecha & 09/08/2026 \\ \hline
+Repositorio público &
+\href{\RepoURL}{\nolinkurl{\RepoURL}} \\ \hline
+\end{tabularx}
+
+\vfill
+{\small Universidad Técnica Estatal de Quevedo -- Ecuador\par}
+\end{titlepage}
+
+\pagenumbering{roman}
+\setcounter{page}{1}
+\tableofcontents
+\clearpage
+\listoftables
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+
+% ============================================================
+% 2. RESUMEN Y OBJETIVOS
+% ============================================================
+
+\section{Resumen y objetivos}
+
+\subsection{Resumen}
+
+La presente práctica experimental aplica técnicas de validación y gestión de requisitos sobre el ERS/SRS real del \Sistema{} (\Sigla), utilizando como línea base la versión \VersionERS. El trabajo comprende una inspección formal tipo Fagan, preparación individual de inspectores, consolidación y clasificación de defectos, cálculo de métricas, corrección de hallazgos críticos y mayores, gestión de solicitudes de cambio mediante un Change Control Board (CCB), trazabilidad bidireccional en una herramienta CASE y establecimiento de una línea base con Git. Adicionalmente, se contrasta la ingeniería de requisitos documental con prácticas ágiles y se revisan herramientas CASE aplicables al proyecto. La preparación individual del Inspector 1 se fundamenta en la revisión directa del ERS vigente y se mantiene independiente de la preparación del Inspector 2 hasta la reunión de inspección. La evidencia final deberá quedar versionada en el repositorio público y el informe grupal deberá ser reproducible desde sus fuentes \LaTeX.
+
+\subsection{Objetivo general}
+
+Aplicar técnicas formales de validación, gestión del cambio, trazabilidad y control de configuración al ERS/SRS del \Sigla{}, con el fin de identificar defectos, analizar su impacto y establecer una línea base verificable del documento de requisitos.
+
+\subsection{Objetivos específicos}
+
+\begin{enumerate}[label=\arabic*.,leftmargin=1.1cm]
+    \item Ejecutar una inspección formal tipo Fagan sobre el ERS/SRS del \Sigla{}, con roles diferenciados, listas de verificación y registro de defectos.
+    \item Calcular e interpretar métricas de inspección relacionadas con densidad, tipo, severidad, detección por inspector y esfuerzo.
+    \item Tramitar tres solicitudes formales de cambio (RFC) sustentadas en la matriz de trazabilidad.
+    \item Deliberar los cambios mediante un CCB simulado y mantener una versión coherente del ERS.
+    \item Construir trazabilidad bidireccional en una herramienta CASE con enlaces verificables.
+    \item Establecer y publicar una línea base del ERS mediante Git, commits semánticos, tag anotado y \texttt{CHANGELOG.md}.
+    \item Comparar herramientas CASE y contrastar la ingeniería de requisitos tradicional frente a la ágil en el contexto del \Sigla{}.
+\end{enumerate}
+
+% ============================================================
+% 3. FUNDAMENTO TEÓRICO
+% ============================================================
+
+\section{Fundamento teórico}
+
+\subsection{Marco normativo}
+
+La ingeniería de requisitos requiere mecanismos que permitan demostrar que el conjunto de requisitos representa las necesidades de los interesados y que, al mismo tiempo, puede ser revisado, trazado y controlado durante el ciclo de vida. ISO/IEC/IEEE 29148:2018 establece procesos y prácticas para la ingeniería de requisitos y sirve como referente principal para la definición, análisis, verificación y validación de la información de requisitos \cite{r1}. En esta práctica se utiliza especialmente como base normativa para revisar la calidad del ERS y comprobar que sus requisitos sean adecuados para su propósito.
+
+La gestión posterior de los cambios se vincula con los procesos de ciclo de vida de sistemas y software descritos en ISO/IEC/IEEE 15288:2023 e ISO/IEC/IEEE 12207:2017 \cite{r2,r3}. Estos referentes permiten ubicar el control de configuración, el mantenimiento de artefactos y la gestión disciplinada de modificaciones dentro del ciclo de vida, evitando que el ERS cambie sin una decisión documentada.
+
+Los requisitos no funcionales se revisan además desde la perspectiva del modelo de calidad ISO/IEC 25010:2023 \cite{r4}. Su aplicación resulta pertinente en el \Sigla{} debido a que el ERS contiene requisitos relacionados con eficiencia de desempeño, interacción, fiabilidad, seguridad, mantenibilidad, compatibilidad y privacidad. El uso de métricas y métodos de verificación hace posible transformar expresiones generales de calidad en condiciones que puedan ser evaluadas.
+
+SWEBOK Guide v4.0 considera la ingeniería de requisitos como un área que comprende obtención, análisis, especificación, validación y gestión \cite{r6}. Pohl desarrolla de forma sistemática la necesidad de mantener relaciones entre fuentes, requisitos, dependencias y artefactos derivados \cite{r5}. Finalmente, el Change Control Board se relaciona con el control integrado de cambios del PMBOK, pues las solicitudes deben analizarse, decidirse y reflejarse de manera controlada sobre la configuración aprobada \cite{r7}.
+
+\subsection{Validación de requisitos}
+
+La \textbf{verificación} se orienta a comprobar si un artefacto cumple las reglas, propiedades y criterios con los que fue construido, mientras que la \textbf{validación} busca determinar si los requisitos representan correctamente las necesidades de los stakeholders y el propósito del sistema \cite{r1,r5}. Por ello, un requisito puede ser formalmente correcto y aun así no responder a una necesidad real; de la misma forma, una necesidad válida puede estar expresada de forma ambigua o imposible de comprobar.
+
+Las técnicas de validación incluyen revisión, walkthrough, prototipado, listas de verificación, análisis por perspectivas e inspecciones formales \cite{r6,r8}. Las listas de verificación permiten revisar propiedades concretas y reducen la dependencia de una lectura intuitiva. En la PE4, la preparación individual se concentra en seis propiedades: ambigüedad, completitud, consistencia, verificabilidad, trazabilidad y factibilidad.
+
+El método de Fagan plantea una inspección estructurada en la que la detección de defectos se separa de su corrección \cite{r9}. Para la práctica se consideran los roles de Moderador, Lector, Inspector 1 e Inspector 2. Los inspectores preparan individualmente los hallazgos antes de la reunión; el Lector parafrasea el contenido; los inspectores reportan; y el Moderador consolida. Durante la reunión se identifican y clasifican defectos, pero las soluciones se documentan posteriormente.
+
+Las métricas permiten convertir la inspección en evidencia cuantitativa. La densidad de defectos relaciona la cantidad de defectos únicos con el tamaño del artefacto inspeccionado; la distribución por tipo permite conocer qué propiedades presentan más problemas; la distribución por severidad facilita priorizar riesgos; la tasa de detección por inspector evidencia el aporte relativo de la preparación individual; y el esfuerzo total en horas-persona muestra el costo de la actividad \cite{r9,r6}. Una métrica no debe presentarse únicamente como número: debe interpretarse respecto de la calidad del ERS.
+
+\subsubsection{Caso aplicado al SICST}
+
+Un caso concreto de consistencia aparece en RF-15. El ERS clasifica RF-15 como \textit{Must} y declara dependencia de RF-06 y RF-07, mientras que ambos requisitos dependientes están priorizados como \textit{Should}. Si los requisitos \textit{Should} se posponen, una funcionalidad considerada indispensable puede quedar bloqueada por dependencias que la propia priorización permite diferir. Este hallazgo se registra como D-AN-03 en la preparación individual del Inspector 1 y ejemplifica la necesidad de revisar de manera conjunta prioridad, dependencias y alcance antes de establecer una línea base.
+
+\subsection{Gestión de requisitos}
+
+La gestión de requisitos mantiene el control sobre los cambios producidos después de la especificación inicial. Una \textbf{línea base} representa una versión identificada y controlada del ERS que se utiliza como referencia para evaluar modificaciones posteriores \cite{r2,r3}. El versionado debe permitir reconstruir qué cambió, por qué cambió, quién intervino y qué artefactos se vieron afectados.
+
+Los atributos de requisitos, como identificador, fuente, prioridad, dependencias, estado y criterio de aceptación, facilitan su administración y permiten construir trazabilidad \cite{r5}. La \textbf{pre-traceability} conecta el requisito con su origen, por ejemplo una entrevista, stakeholder o norma; la \textbf{post-traceability} conecta el requisito con artefactos derivados, como casos de uso, historias, componentes, mockups o pruebas. La trazabilidad hacia atrás permite justificar el origen del requisito y la trazabilidad hacia adelante permite medir el impacto de una modificación.
+
+La matriz de trazabilidad hace explícitas estas relaciones. En una solicitud de cambio no resulta suficiente estimar el impacto de forma intuitiva; se debe recorrer la matriz para localizar requisitos y artefactos relacionados. El proceso de cambio utilizado en PE4 comprende solicitud formal, análisis de impacto, deliberación y decisión del CCB, implementación, verificación y cierre \cite{r7,r5}. Una RFC aprobada debe quedar reflejada en el ERS, en los artefactos dependientes, en el historial de cambios y en la nueva línea base.
+
+La volatilidad de requisitos puede analizarse mediante la cantidad o proporción de requisitos añadidos, modificados o eliminados entre versiones. Una alta volatilidad no implica por sí sola baja calidad, pero exige mayor disciplina de trazabilidad, versionado y análisis de impacto para evitar inconsistencias.
+
+\subsection{Herramientas CASE para ingeniería de requisitos}
+
+Las herramientas CASE apoyan actividades del ciclo de vida mediante repositorios, modelos, reglas y automatización. De manera general se distinguen herramientas \textit{upper CASE}, orientadas a análisis, requisitos y diseño; \textit{lower CASE}, asociadas a construcción, pruebas y mantenimiento; e \textit{integrated CASE}, que integran varias fases del ciclo de vida \cite{r6,r5}.
+
+En ingeniería de requisitos, una herramienta CASE debe aportar más que almacenamiento de texto. Son relevantes las funciones de repositorio, atributos, trazabilidad, baselines, control de cambios, colaboración, exportación e integración con sistemas de control de versiones. La selección también depende de costo, curva de aprendizaje, tamaño del equipo y nivel de formalidad requerido.
+
+Para la PE4, Jira o Trello se utilizan como herramienta de gestión y evidencia de trazabilidad. El tablero debe representar relaciones reales con el ERS y no limitarse a una lista de tareas. Por ejemplo, una historia asociada a RF-20 debería conservar un vínculo hacia la fuente del requisito y, hacia adelante, relacionarse con su caso de uso, criterio de aceptación, módulo y prueba. Así, si una RFC modifica RF-20, puede identificarse con mayor claridad el impacto.
+
+\subsection{Ingeniería de requisitos en procesos ágiles}
+
+En los enfoques ágiles, los requisitos se gestionan comúnmente mediante un \textit{product backlog} que se refina de forma continua. Las historias de usuario expresan una necesidad desde la perspectiva de un rol y se complementan con criterios de aceptación que permiten comprobar el comportamiento esperado \cite{r10}. La priorización y el refinamiento continuo ayudan a mantener los elementos preparados para su desarrollo.
+
+La \textit{Definition of Ready} funciona como acuerdo de preparación para determinar cuándo un elemento posee información suficiente para entrar al trabajo; la \textit{Definition of Done} establece las condiciones que deben cumplirse para considerar terminado un incremento \cite{r8,r6}. Estas prácticas no eliminan la necesidad de requisitos verificables, sino que distribuyen parte del control mediante acuerdos y criterios compartidos por el equipo.
+
+BDD refuerza la verificabilidad mediante ejemplos observables. Gherkin organiza escenarios con condiciones iniciales, una acción y un resultado esperado, comúnmente expresados como \textit{Given--When--Then} \cite{r11}. En el \Sigla{}, una historia ágil puede conservar su vínculo con un RF formal y utilizar un escenario Gherkin como criterio de aceptación. De esta manera, el backlog puede aportar flexibilidad sin perder la trazabilidad, la línea base y el control de cambios propios de un ERS formal.
+
+
+
+% ============================================================
+% ANEXO A - PREPARACIÓN INDIVIDUAL DEL INSPECTOR 1
+% ============================================================
+
+\clearpage
+\appendix
+\section{Preparación individual del Inspector 1}
+
+\textbf{Inspector:} Naranjo Flores Anderson Jeampiere\\
+\textbf{Rol:} Inspector 1\\
+\textbf{Documento inspeccionado:} ERS/SRS Entrega 3 (2A), versión \VersionERS\\
+\textbf{Fecha de preparación:} 09/08/2026\\
+\textbf{Hora de inicio:} 18:30\\
+\textbf{Hora de cierre:} 18:55\\
+\textbf{Total de defectos validados:} 8
+
+La preparación individual se efectuó antes de la reunión de inspección Fagan. Los hallazgos de esta sección corresponden a los mismos identificadores, requisitos, evidencias y observaciones registrados en el Anexo A firmado del Inspector 1. La versión firmada se conserva como evidencia independiente en el repositorio.
+
+\clearpage
+\begin{landscape}
+\subsection{Lista de verificación de las seis propiedades obligatorias}
+
+La Tabla~\ref{tab:seis-propiedades} presenta un hallazgo para cada propiedad obligatoria de la preparación individual: ambigüedad, completitud, consistencia, verificabilidad, trazabilidad y factibilidad.
+
+\footnotesize
+\begin{longtblr}[
+    caption = {Lista de verificación de las seis propiedades obligatorias},
+    label = {tab:seis-propiedades},
+]{
+    width=\linewidth,
+    colspec={Q[l,0.65] Q[l,1.15] Q[l,1.65] Q[l,1.45] Q[c,0.55] Q[l,2.35] Q[l,2.55]},
+    rowhead=1,
+    rows={valign=t},
+    row{1}={font=\bfseries, bg=grisencabezado, valign=m},
+    hlines={0.4pt, grislinea},
+    vlines={0.25pt, gray!45},
+    colsep=3.8pt,
+    rowsep=5.2pt,
+}
+ID & Propiedad & Pregunta de verificación & Requisito / sección revisada & Cumple & Evidencia en el ERS & Observación del defecto \\
+
+D-AN-01 &
+Ambigüedad &
+¿Los términos que activan alertas tienen umbrales definidos y una sola interpretación? &
+RF-28 - Generar alertas terapéuticas &
+No &
+PDF p. 48, Tabla 42: se contemplan alertas por incumplimiento, aumento de dolor, fatiga elevada, errores frecuentes o posible riesgo. &
+No se definen umbrales para ``aumento de dolor'', ``fatiga elevada'', ``errores frecuentes'' ni ``posible riesgo''. Dos evaluadores podrían activar la alerta con criterios distintos. \\
+
+D-AN-02 &
+Completitud &
+¿La métrica de disponibilidad define el periodo de observación necesario para calcular el porcentaje? &
+RNF-07 - Disponibilidad &
+No &
+PDF p. 51, Tabla 47: se exige disponibilidad mínima del 95\% durante el ``periodo de pruebas definido por el equipo''. &
+No se fija duración del periodo, número de comprobaciones ni ventana de medición. Falta información para calcular el 95\% de manera reproducible. \\
+
+D-AN-03 &
+Consistencia &
+¿La prioridad de un requisito obligatorio es coherente con la prioridad de los requisitos de los que depende? &
+RF-15 frente a RF-06 y RF-07 &
+No &
+PDF p. 36, Tabla 14, y p. 43, Tabla 29: RF-15 = Must y depende de RF-06/RF-07; RF-06 y RF-07 = Should. &
+Un requisito Must depende de dos requisitos Should. Si los Should se posponen, RF-15 puede quedar impedido aunque esté clasificado como indispensable. \\
+
+D-AN-04 &
+Verificabilidad &
+¿El criterio de accesibilidad puede medirse con un umbral objetivo? &
+RNF-11 - Accesibilidad &
+No &
+PDF p. 52, Tabla 47: 100\% de pantallas principales con textos legibles, botones identificables y ``contraste adecuado''. &
+``Contraste adecuado'' no establece relación de contraste, estándar o valor mínimo; por tanto, el cumplimiento no puede decidirse objetivamente. \\
+
+D-AN-05 &
+Trazabilidad &
+¿Los códigos de evidencia usados en los requisitos coinciden con los identificadores de las evidencias actuales del documento? &
+§3.2 / §6.2 / Anexos de evidencias &
+No &
+PDF pp. 34--35 usa EV-ENT-01..04, EV-CUE-01 y EV-CONS-01; p. 96 y anexos usan EV2-ENT-01, EV2-PAC-01..14 y EV2-EST-01. &
+Conviven dos nomenclaturas (EV-* y EV2-*), sin una tabla de equivalencia explícita. Esto dificulta seguir un RF hasta su evidencia actual. \\
+
+D-AN-06 &
+Factibilidad &
+¿El objetivo de rendimiento define un entorno técnico suficiente para evaluar si es viable y reproducible? &
+RNF-03 - Procesamiento visual mínimo de 15 FPS &
+No &
+PDF p. 51, Tabla 47: mínimo 15 FPS con cámara 720p y condiciones controladas; p. 18 define cámara/red, pero no hardware de procesamiento de referencia. &
+El objetivo de 15 FPS depende fuertemente del CPU/GPU y navegador. Sin hardware de referencia o configuración mínima no puede evaluarse de forma consistente la factibilidad del objetivo. \\
+\end{longtblr}
+\normalsize
+\end{landscape}
+\clearpage
+
+\begin{landscape}
+\subsection{Hallazgos adicionales validados}
+
+Además de las seis propiedades obligatorias, se validaron dos hallazgos adicionales para ampliar la cobertura de la preparación individual. Ambos se mantienen como defectos válidos en el Anexo A firmado.
+
+\footnotesize
+\begin{longtblr}[
+    caption = {Hallazgos adicionales validados por el Inspector 1},
+    label = {tab:adicionales-validados},
+]{
+    width=\linewidth,
+    colspec={Q[l,0.70] Q[l,1.15] Q[l,1.45] Q[l,2.50] Q[l,2.90] Q[c,0.70]},
+    rowhead=1,
+    rows={valign=t},
+    row{1}={font=\bfseries, bg=grisencabezado, valign=m},
+    hlines={0.4pt, grislinea},
+    vlines={0.25pt, gray!45},
+    colsep=4pt,
+    rowsep=5.5pt,
+}
+ID & Propiedad & Elemento revisado & Evidencia en el ERS & Observación & Validado \\
+
+D-AN-07 &
+Consistencia &
+RF-19 frente a RF-18 &
+PDF pp. 44--45: RF-19 = Must y depende de RF-18; RF-18 = Should. &
+RF-19 es obligatorio, pero depende de una guía visual clasificada como Should. La priorización permite omitir una dependencia que el propio RF-19 declara necesaria. &
+Sí \\
+
+D-AN-08 &
+Completitud / Trazabilidad &
+EV-ENT-04 en §3.2.1 &
+PDF p. 34 cita EV-ENT-04; p. 35, Tabla 13, define EV-ENT-01, EV-ENT-02, EV-ENT-03, EV-CUE-01 y EV-CONS-01, pero no EV-ENT-04; p. 81 lo usa para RF-22 a RF-24. &
+EV-ENT-04 se usa como fuente, pero falta su definición en la tabla oficial de fuentes de evidencia. No puede verificarse su significado desde §3.2.1. &
+Sí \\
+\end{longtblr}
+\normalsize
+\end{landscape}
+\clearpage
+
+\subsection{Análisis detallado de los ocho defectos validados}
+
+\subsubsection{D-AN-01. Umbrales no definidos para la generación de alertas terapéuticas}
+\textbf{Propiedad afectada:} ambigüedad.  
+\textbf{Análisis:} RF-28 contempla alertas por aumento de dolor, fatiga elevada, errores frecuentes y posible riesgo, pero no establece valores o reglas que determinen cuándo cada condición debe considerarse cumplida. La ausencia de umbrales permite interpretaciones distintas y puede producir activaciones inconsistentes.
+
+\subsubsection{D-AN-02. Periodo de observación incompleto para la métrica de disponibilidad}
+\textbf{Propiedad afectada:} completitud.  
+\textbf{Análisis:} RNF-07 fija una disponibilidad mínima de 95\%, pero deja el periodo de pruebas a definición del equipo. Sin duración, ventana de medición o número de comprobaciones, la métrica carece de un marco reproducible para calcular el porcentaje.
+
+\subsubsection{D-AN-03. Inconsistencia de prioridad entre RF-15 y sus dependencias}
+\textbf{Propiedad afectada:} consistencia.  
+\textbf{Análisis:} RF-15 está priorizado como Must y depende de RF-06 y RF-07, ambos Should. La priorización permite posponer requisitos que el propio RF-15 necesita, lo que puede dejar una capacidad obligatoria sin sus dependencias.
+
+\subsubsection{D-AN-04. Criterio de accesibilidad sin umbral objetivo de contraste}
+\textbf{Propiedad afectada:} verificabilidad.  
+\textbf{Análisis:} RNF-11 exige ``contraste adecuado'', pero no define relación de contraste, estándar aplicable ni valor mínimo. El cumplimiento depende entonces del criterio subjetivo del evaluador y no de una medición reproducible.
+
+\subsubsection{D-AN-05. Doble nomenclatura de evidencias sin equivalencia explícita}
+\textbf{Propiedad afectada:} trazabilidad.  
+\textbf{Análisis:} en el documento conviven identificadores EV-* y EV2-* para evidencias de distintas etapas. Sin una tabla de equivalencia explícita, seguir un requisito desde su fuente hasta la evidencia actual requiere interpretación manual y puede generar pérdidas de trazabilidad.
+
+\subsubsection{D-AN-06. Entorno técnico insuficiente para evaluar el objetivo de 15 FPS}
+\textbf{Propiedad afectada:} factibilidad.  
+\textbf{Análisis:} RNF-03 fija un mínimo de 15 FPS con cámara 720p, pero no define un hardware de procesamiento de referencia. El rendimiento puede variar significativamente según CPU, GPU, navegador y configuración, por lo que no existe un entorno suficiente para evaluar la factibilidad de forma consistente.
+
+\subsubsection{D-AN-07. Inconsistencia de prioridad entre RF-19 y RF-18}
+\textbf{Propiedad afectada:} consistencia.  
+\textbf{Análisis:} RF-19 es Must y depende de RF-18, clasificado como Should. Si RF-18 se omite o posterga, RF-19 puede quedar sin una dependencia declarada como necesaria, aun cuando se mantenga como requisito indispensable.
+
+\subsubsection{D-AN-08. Fuente EV-ENT-04 utilizada pero no definida en la Tabla 13}
+\textbf{Propiedad afectada:} completitud y trazabilidad.  
+\textbf{Análisis:} EV-ENT-04 aparece citada y se utiliza como fuente para requisitos posteriores, pero no tiene una definición en la tabla oficial de fuentes de evidencia de §3.2.1. Esto impide verificar su significado desde el catálogo donde se documentan las demás fuentes.
+
+\subsection{Coherencia con la consolidación Fagan}
+
+La preparación del Inspector 1 se conserva como evidencia individual y mantiene exactamente ocho defectos validados, identificados como D-AN-01 a D-AN-08. Durante la reunión Fagan estos hallazgos deben reportarse con su evidencia y posteriormente consolidarse con los hallazgos de los demás participantes. La clasificación final por tipo y severidad pertenece al registro consolidado de la reunión y no debe confundirse con la preparación previa del inspector.
+
+\subsection{Cierre de la preparación individual}
+
+La versión firmada del Anexo A registra la preparación del Inspector 1 el 09/08/2026, con inicio a las 18:30 y cierre a las 18:55. En total se validaron ocho defectos. El archivo firmado se conserva como evidencia independiente del informe LaTeX y debe subirse al repositorio junto con su versión editable.
+
+\begin{table}[htbp]
+\centering
+\caption{Datos de cierre de la preparación individual}
+\label{tab:cierre-anderson}
+\renewcommand{\arraystretch}{1.25}
+\begin{tabularx}{0.92\textwidth}{|>{\bfseries}p{4cm}|X|}
+\hline
+Inspector & Anderson \\ \hline
+Rol & Inspector 1 \\ \hline
+Fecha de preparación & 09/08/2026 \\ \hline
+Hora de inicio & 18:30 \\ \hline
+Hora de cierre & 18:55 \\ \hline
+Total de defectos validados & 8 \\ \hline
+Evidencia firmada & Anexo\_A\_Inspector1\_Anderson\_SICST\_COMPLETO\_FIRMADO.pdf \\ \hline
+\end{tabularx}
+\end{table}
+
+% ============================================================
+% REFERENCIAS IEEE
+% ============================================================
+
+\clearpage
+\printbibliography[title={Referencias}]
+
+\end{document}
